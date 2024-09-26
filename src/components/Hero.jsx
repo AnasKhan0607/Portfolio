@@ -5,11 +5,14 @@ import { AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube } from 'react-icons/
 
 const Hero = () => {
   return (
-    <section id="hero" className="flex flex-col md:flex-row items-center justify-center p-10 min-h-screen bg-white dark:bg-gray-900">
+    <section id="hero" className="flex flex-col md:flex-row items-center justify-center p-10 min-h-screen ">
       {/* Left Side - Text */}
       <div className="text-center md:text-left">
         {/* Heading and Subheading */}
-        <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400">
+        <h3 className="text-1xl py-2 dark:text-white">
+          HELLO THERE 👋🏽, IM
+        </h3>
+        <h2 className="text-7xl py-2 text-teal-600 font-medium dark:text-teal-400">
           Anas Khan
         </h2>
         <h3 className="text-2xl py-2 dark:text-white">
@@ -31,7 +34,7 @@ const Hero = () => {
 
       {/* Right Side - Profile Image */}
       <div className="md:w-1/2 flex justify-center mt-10 md:mt-0">
-        <div className="bg-gradient-to-b from-teal-500 rounded-full w-96 h-96 relative overflow-hidden">
+        <div className="bg-gradient-to-b from-teal-500 rounded-full w-[31rem] h-[31rem] relative overflow-hidden">
           <Image
               src={profile}
               alt="profile"

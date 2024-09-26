@@ -1,10 +1,9 @@
-// src/components/Navbar.jsx
 'use client';
 
 import { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({ toggleDarkMode, darkMode }) => {
   const [navOpen, setNavOpen] = useState(false);
 
   const handleToggle = () => {
@@ -12,10 +11,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar bg-base-100 shadow-lg">
+    <nav className="navbar">
       {/* Navbar logo on the left */}
       <div className="navbar-start">
         <a className="btn btn-ghost normal-case text-xl">Anas Khan</a>
+      </div>
+
+      {/* Dark mode toggle button */}
+      <div className="navbar-center">
+        <button
+          className="btn btn-ghost normal-case"
+          onClick={toggleDarkMode}
+        >
+          {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
+        </button>
       </div>
 
       {/* Hamburger menu button (shown on mobile) */}
