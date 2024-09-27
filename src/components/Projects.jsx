@@ -1,87 +1,138 @@
-import Image from 'next/image';
+// @flow strict
+import * as React from 'react';
 
-// Project Data
-const projectsData = [
-  {
-    name: 'YouTube Learning Mode AI Service',
-    description: 'An interactive learning platform that transforms YouTube videos into an AI-powered question-answering tool.',
-    tools: ['Go', 'Python', 'Redis', 'OpenAI API', 'Docker', 'Kubernetes', 'GCP'],
-    role: 'Full-Stack Developer'
-  },
-  {
-    name: 'Full-Stack Web Application with MERN',
-    description: 'A full-stack web app built using MERN stack and deployed on Kubernetes.',
-    tools: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Docker', 'Kubernetes'],
-    role: 'Lead Developer'
-  },
-  {
-    name: 'Raspberry Pi K3s Cluster Setup',
-    description: 'Set up a Kubernetes cluster using Raspberry Pi to learn container orchestration on a small-scale cloud infrastructure.',
-    tools: ['K3s', 'Kubernetes', 'Raspberry Pi', 'Go', 'Python'],
-    role: 'DevOps Engineer'
-  },
-  {
-    name: 'Client-Server File Sharing App',
-    description: 'A simple client-server file sharing application built in Go with gRPC for efficient communication between microservices.',
-    tools: ['Go', 'gRPC', 'Docker'],
-    role: 'Backend Developer'
-  }
-];
+function ProjectCard({ project }) {
 
-// ProjectCard Component
-const ProjectCard = ({ project }) => {
   return (
-    <div className="from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full mb-8">
-      {/* Decorative Gradients */}
+    <div className="dark:from-[#0d1224] dark:to-[#262626] from-[#262626] to-[#525252] border-[#16f2b3] relative rounded-lg border bg-gradient-to-r w-full">
       <div className="flex flex-row">
         <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
         <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
       </div>
-      {/* Project Details */}
-      <div className="px-4 lg:px-8 py-3 lg:py-5">
-        <h3 className="text-center text-[#16f2b3] text-lg lg:text-xl font-bold">
+      <div className="px-4 lg:px-8 py-3 lg:py-5 relative">
+        <div className="flex flex-row space-x-1 lg:space-x-2 absolute top-1/2 -translate-y-1/2">
+          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-red-400"></div>
+          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-orange-400"></div>
+          <div className="h-2 w-2 lg:h-3 lg:w-3 rounded-full bg-green-200"></div>
+        </div>
+        <p className="text-center ml-3 text-[#16f2b3] text-base lg:text-xl">
           {project.name}
-        </h3>
-        <p className="text-gray-300 text-sm lg:text-base text-center my-3">
-          {project.description}
         </p>
       </div>
-      {/* Tools and Role */}
-      <div className="px-4 lg:px-8 py-2">
-        <p className="text-gray-300 text-xs lg:text-sm">
-          <strong>Tools:</strong> {project.tools.join(", ")}
-        </p>
-        <p className="text-gray-300 text-xs lg:text-sm">
-          <strong>Role:</strong> {project.role}
-        </p>
+      <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
+        <code className="font-mono text-xs md:text-sm lg:text-base">
+          <div className="blink">
+            <span className="mr-2 text-pink-500">const</span>
+            <span className="mr-2 text-white">project</span>
+            <span className="mr-2 text-pink-500">=</span>
+            <span className="text-gray-400">{'{'}</span>
+          </div>
+          <div>
+            <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
+            <span className="text-gray-400">{`'`}</span>
+            <span className="text-amber-300">{project.name}</span>
+            <span className="text-gray-400">{`',`}</span>
+          </div>
+          <div className="ml-4 lg:ml-8 mr-2">
+            <span className=" text-white">tools:</span>
+            <span className="text-gray-400">{` ['`}</span>
+            {
+              project.tools.map((tag, i) => (
+                <React.Fragment key={i}>
+                  <span className="text-amber-300">{tag}</span>
+                  {
+                    project.tools.length - 1 !== i &&
+                    <span className="text-gray-400">{`', '`}</span>
+                  }
+                </React.Fragment>
+              ))
+            }
+            <span className="text-gray-400">{"],"}</span>
+          </div>
+          <div>
+            <span className="ml-4 lg:ml-8 mr-2 text-white">date:</span>
+            <span className="text-orange-400">{project.date}</span>
+            <span className="text-gray-400">,</span>
+          </div>
+          <div className="ml-4 lg:ml-8 mr-2">
+            <span className="text-white">Description:</span>
+            <span className="text-cyan-400">{' ' + project.description}</span>
+            <span className="text-gray-400">,</span>
+          </div>
+          <div><span className="text-gray-400">{`};`}</span></div>
+        </code>
       </div>
     </div>
   );
 };
 
-// Projects Section
 const Projects = () => {
+  const projectsData = [
+    {
+      id: 1,
+      name: 'YouTube Learning Mode AI Extension',
+      date: 'August 2024 - Present',
+      description: "Developed an AI-powered platform that transforms YouTube videos into an interactive, question-answering tool using OpenAI GPT-4 API for context-based responses from video transcripts.",
+      tools: ['Go', 'Python', 'Redis', 'OpenAI API', 'Docker', 'Kubernetes', 'GCP', 'Jenkins'],
+    },
+    {
+      id: 2,
+      name: 'BizReach Marketplace Application',
+      date: 'May 2023 - August 2023',
+      description: 'Led a team to develop a scalable marketplace application, utilizing Firebase for real-time database, authentication, and image storage, with an Express.js and Node.js backend, and a React.js frontend.',
+      tools: ['Firebase', 'Express.js', 'React', 'Node.js', 'Docker', 'GKE'],
+    },
+    {
+      id: 3,
+      name: 'Home Lab',
+      date: 'October 2023 - Present',
+      description: 'Built a K3s cluster across 4 Raspberry Pis, deploying various applications and services with a microservices architecture and advanced monitoring using Prometheus and Grafana.',
+      tools: ['K3s', 'Raspberry Pi', 'Grafana', 'Prometheus', 'Docker', 'Microservices', 'Ansible', 'ArgoCD'],
+    },
+    {
+      id: 4,
+      name: 'Visual Novel Game Editor',
+      date: '2023',
+      description: "A game editor for creating visual novel games, organized into User, Game, and Template branches, each handling different aspects of the game creation process.",
+      tools: ['Java', 'MySQL', 'JDBC', 'JavaFX'],
+    },
+    {
+      id: 5,
+      name: 'RoboRunner',
+      date: '2022',
+      description: 'A short platformer game created with Pygame, focusing on object-oriented programming principles.',
+      tools: ['Pygame', 'Python', 'OOP'],
+    },
+    {
+      id: 6,
+      name: 'RestorEase',
+      date: '2022',
+      description: 'A MERN project aimed at enhancing the experience of booking services at barbershops.',
+      tools: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+    }
+  ];
+
+
+
   return (
-    <div id='projects' className="relative z-50 my-12 lg:my-24">
-      {/* Section Heading */}
+    <div id='projects' className="relative z-50  my-12 lg:my-24">
       <div className="sticky top-10">
-        <div className="w-[80px] h-[80px] bg-teal-100 rounded-full absolute -top-3 left-0 translate-x-1/2 filter blur-3xl opacity-30"></div>
+        <div className="w-[80px] h-[80px] bg-violet-100 rounded-full absolute -top-3 left-0 translate-x-1/2 filter blur-3xl  opacity-30"></div>
         <div className="flex items-center justify-start relative">
-          <span className="bg-[#1a1443] absolute left-0 w-fit text-white px-5 py-3 text-xl rounded-md">
+          <span className="bg-teal-600 dark:bg-teal-700 absolute left-0  w-fit text-white px-5 py-3 text-xl rounded-md">
             PROJECTS
           </span>
-          <span className="w-full h-[2px] bg-[#1a1443]"></span>
+          <span className="w-full h-[1px] bg-teal-600 dark:bg-teal-400"></span>
         </div>
       </div>
 
-      {/* Project Cards */}
       <div className="pt-24">
         <div className="flex flex-col gap-6">
-          {projectsData.map((project, index) => (
+          {projectsData.slice(0, 6).map((project, index) => (
             <div
               id={`sticky-card-${index + 1}`}
               key={index}
-              className="sticky-card w-full mx-auto max-w-2xl"
+              className="sticky-card w-full mx-auto max-w-2xl sticky"
             >
               <div className="box-border flex items-center justify-center rounded shadow-[0_0_30px_0_rgba(0,0,0,0.3)] transition-all duration-[0.5s]">
                 <ProjectCard project={project} />
