@@ -2,8 +2,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { BiLogoLinkedin } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
-import { FaFacebook, FaStackOverflow } from 'react-icons/fa';
-import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoGithub, IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
 
@@ -14,9 +12,6 @@ const personalData = {
   address: 'Toronto, Ontario, Canada',
   github: 'https://github.com/AnasKhan0607',
   linkedIn: 'https://www.linkedin.com/in/anas-k/',
-  twitter: 'https://twitter.com/anas_twitter', // Replace with your actual Twitter link
-  stackOverflow: 'https://stackoverflow.com/users/anas_khan', // Replace with your actual Stack Overflow link
-  facebook: 'https://facebook.com/anas.khan', // Replace with your actual Facebook link
 };
 
 const Contact = () => {
@@ -56,7 +51,7 @@ const Contact = () => {
       } else {
         setResponseMessage('Failed to send the message. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setResponseMessage('Something went wrong. Please try again.');
     }
 

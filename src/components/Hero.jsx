@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="text-center md:text-left">
         {/* Heading and Subheading */}
         <h3 className="text-1xl py-2 dark:text-white">
-          HELLO THERE 👋🏽, I'M
+          HELLO THERE 👋🏽, IM
         </h3>
         <h2 className="text-7xl py-2 text-teal-600 font-medium dark:text-teal-400">
           Anas Khan
