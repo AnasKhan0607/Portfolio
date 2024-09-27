@@ -115,24 +115,6 @@ const Contact = () => {
                 size={48}
               />
             </Link>
-            <Link target="_blank" href={personalData.twitter}>
-              <FaXTwitter
-                className="bg-gray-400 dark:bg-gray-800 p-3 rounded-full hover:bg-teal-500 hover:scale-110 transition-all duration-300 text-gray-800 dark:text-white cursor-pointer"
-                size={48}
-              />
-            </Link>
-            <Link target="_blank" href={personalData.stackOverflow}>
-              <FaStackOverflow
-                className="bg-gray-400 dark:bg-gray-800 p-3 rounded-full hover:bg-teal-500 hover:scale-110 transition-all duration-300 text-gray-800 dark:text-white cursor-pointer"
-                size={48}
-              />
-            </Link>
-            <Link target="_blank" href={personalData.facebook}>
-              <FaFacebook
-                className="bg-gray-400 dark:bg-gray-800 p-3 rounded-full hover:bg-teal-500 hover:scale-110 transition-all duration-300 text-gray-800 dark:text-white cursor-pointer"
-                size={48}
-              />
-            </Link>
           </div>
         </div>
       </div>

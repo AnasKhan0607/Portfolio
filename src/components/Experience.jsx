@@ -1,4 +1,3 @@
-// src/components/Experience.jsx
 import { useState } from "react";
 import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
@@ -56,7 +55,7 @@ function Experience() {
   return (
     <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       {/* Section Heading */}
-      <div className="w-[100px] h-[100px] bg-teal-600 rounded-full absolute top-6 left-[42%] translate-x-1/2 filter blur-3xl  opacity-20"></div>
+      <div className="w-[100px] h-[100px] bg-teal-600 rounded-full absolute top-6 left-[42%] translate-x-1/2 filter blur-3xl opacity-20"></div>
 
       <div className="flex justify-center -translate-y-[1px]">
         <div className="w-3/4">
@@ -76,9 +75,15 @@ function Experience() {
 
       {/* Two-Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 py-8">
-        {/* Left Column: Image */}
+        {/* Left Column: GIF */}
         <div className="flex justify-center items-center">
-          <Image src="/section.svg" alt="Experience Image" width={500} height={500} className="rounded-lg shadow-lg" />
+          <Image 
+            src="/experience.gif" 
+            alt="Experience GIF" 
+            width={500} 
+            height={500} 
+            className="rounded-lg shadow-lg"
+          />
         </div>
 
         {/* Right Column: Experience Cards */}
@@ -86,22 +91,22 @@ function Experience() {
           {experiences.map((experience) => (
             <div
               key={experience.id}
-              className="cursor-pointer border border-teal-900 p-4 rounded-lg hover:shadow-lg hover:border-teal-500 transition-all duration-300 bg-teal-800 dark:bg-teal-500 text-white"
+              className="cursor-pointer relative rounded-lg border bg-gradient-to-r dark:from-[#0d1224] dark:to-[#262626] from-[#262626] to-[#525252] border-[#16f2b3] transition-transform duration-500 hover:scale-105 hover:shadow-lg hover:border-pink-500 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-lg before:border-2 before:border-pink-500 before:scale-x-0 before:origin-right before:transition-transform before:duration-500 hover:before:scale-x-100 hover:before:origin-left overflow-hidden"
               onClick={() => handleExperienceClick(experience.id)}
             >
-              <div className="flex items-center gap-4">
-                <BsPersonWorkspace size={36} className="text-teal-400" />
+              <div className="relative z-10 flex items-center gap-4 p-10">
+                <BsPersonWorkspace size={50} className="text-teal-400" />
                 <div>
-                  <h3 className="text-lg font-bold">{experience.title}</h3>
-                  <p className="text-sm">{experience.company}</p>
-                  <p className="text-xs text-teal-200">{experience.duration}</p>
-                  <p className="text-xs text-teal-100">Tech Stack: {experience.techStack}</p>
+                  <h3 className="text-lg font-bold text-white">{experience.title}</h3>
+                  <p className="text-m text-white">{experience.company}</p>
+                  <p className="text-s text-teal-200">{experience.duration}</p>
+                  <p className="text-s text-teal-100">Tech Stack: {experience.techStack}</p>
                 </div>
               </div>
 
               {/* Expandable Details */}
               {selectedExperience === experience.id && (
-                <div className="mt-4 bg-teal-600 p-4 rounded-lg shadow-inner">
+                <div className="mt-4 border-t-[2px] border-indigo-900 p-4 bg-teal-700 rounded-lg shadow-inner">
                   <ul className="list-disc ml-6">
                     {experience.details.map((detail, index) => (
                       <li key={index} className="text-sm text-white">

@@ -1,10 +1,11 @@
 // @flow strict
 import * as React from 'react';
+import { FaGithub } from 'react-icons/fa';
 
 function ProjectCard({ project }) {
 
   return (
-    <div className="dark:from-[#0d1224] dark:to-[#262626] from-[#262626] to-[#525252] border-[#16f2b3] relative rounded-lg border bg-gradient-to-r w-full">
+    <div className="relative rounded-lg border bg-gradient-to-r dark:from-[#0d1224] dark:to-[#262626] from-[#262626] to-[#525252] border-[#16f2b3] transition-transform duration-500 hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-lg before:border-2 before:border-pink-500 before:scale-x-0 before:origin-right before:transition-transform before:duration-500 hover:before:scale-x-100 hover:before:origin-left overflow-hidden">
       <div className="flex flex-row">
         <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
         <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
@@ -34,7 +35,7 @@ function ProjectCard({ project }) {
             <span className="text-gray-400">{`',`}</span>
           </div>
           <div className="ml-4 lg:ml-8 mr-2">
-            <span className=" text-white">tools:</span>
+            <span className="text-white">tools:</span>
             <span className="text-gray-400">{` ['`}</span>
             {
               project.tools.map((tag, i) => (
@@ -62,6 +63,18 @@ function ProjectCard({ project }) {
           <div><span className="text-gray-400">{`};`}</span></div>
         </code>
       </div>
+      {project.github && (
+        <div className="flex justify-center py-4">
+          <a 
+            href={project.github} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center justify-center bg-teal-600 dark:bg-[#16f2b3] hover:bg-[#13e0a8] dark:hover:bg-[#13e0a8] text-white font-bold py-2 px-4 rounded-full"
+          >
+            <FaGithub className="mr-2" /> View on GitHub
+          </a>
+        </div>
+      )}
     </div>
   );
 };
@@ -72,43 +85,49 @@ const Projects = () => {
       id: 1,
       name: 'YouTube Learning Mode AI Extension',
       date: 'August 2024 - Present',
-      description: "Developed an AI-powered platform that transforms YouTube videos into an interactive, question-answering tool using OpenAI GPT-4 API for context-based responses from video transcripts.",
+      description: "Developed an AI-powered platform that transforms YouTube videos into an interactive, question-answering tool using OpenAI GPT-4 API for context-based responses from video transcripts",
       tools: ['Go', 'Python', 'Redis', 'OpenAI API', 'Docker', 'Kubernetes', 'GCP', 'Jenkins'],
+      github: 'https://github.com/AnasKhan0607/Youtube-Learning-Mode'
     },
     {
       id: 2,
       name: 'BizReach Marketplace Application',
       date: 'May 2023 - August 2023',
-      description: 'Led a team to develop a scalable marketplace application, utilizing Firebase for real-time database, authentication, and image storage, with an Express.js and Node.js backend, and a React.js frontend.',
+      description: 'Led a team to develop a scalable marketplace application, utilizing Firebase for real-time database, authentication, and image storage, with an Express.js and Node.js backend, and a React.js frontend',
       tools: ['Firebase', 'Express.js', 'React', 'Node.js', 'Docker', 'GKE'],
+      github: 'https://github.com/AnasKhan0607/Bizreach'
     },
     {
       id: 3,
       name: 'Home Lab',
       date: 'October 2023 - Present',
-      description: 'Built a K3s cluster across 4 Raspberry Pis, deploying various applications and services with a microservices architecture and advanced monitoring using Prometheus and Grafana.',
+      description: 'Built a K3s cluster across 4 Raspberry Pis, deploying various applications and services with a microservices architecture and advanced monitoring using Prometheus and Grafana',
       tools: ['K3s', 'Raspberry Pi', 'Grafana', 'Prometheus', 'Docker', 'Microservices', 'Ansible', 'ArgoCD'],
+      github: 'https://github.com/AnasKhan0607/raspberry-pi-k3s-cluster'
     },
     {
       id: 4,
       name: 'Visual Novel Game Editor',
       date: '2023',
-      description: "A game editor for creating visual novel games, organized into User, Game, and Template branches, each handling different aspects of the game creation process.",
+      description: "A game editor for creating visual novel games, organized into User, Game, and Template branches, each handling different aspects of the game creation process",
       tools: ['Java', 'MySQL', 'JDBC', 'JavaFX'],
+      github: 'https://github.com/AnasKhan0607/UofT-CSC207-Summer-2021-Group-Project-group_0059'
     },
     {
       id: 5,
       name: 'RoboRunner',
       date: '2022',
-      description: 'A short platformer game created with Pygame, focusing on object-oriented programming principles.',
+      description: 'A short platformer game created with Pygame, focusing on object-oriented programming principles',
       tools: ['Pygame', 'Python', 'OOP'],
+      github: 'https://github.com/AnasKhan0607/RoboRunner'
     },
     {
       id: 6,
       name: 'RestorEase',
       date: '2022',
-      description: 'A MERN project aimed at enhancing the experience of booking services at barbershops.',
+      description: 'A MERN project aimed at enhancing the experience of booking services at barbershops',
       tools: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+      github: 'https://github.com/AnasKhan0607/RestorEase'
     }
   ];
 
