@@ -83,7 +83,7 @@ const Projects = () => {
   const projectsData = [
     {
       id: 1,
-      name: 'YouTube Learning Mode AI Extension',
+      name: 'YouTube Learning Mode AI',
       date: 'August 2024 - Present',
       description: "Developed an AI-powered platform that transforms YouTube videos into an interactive, question-answering tool using OpenAI GPT-4 API for context-based responses from video transcripts",
       tools: ['Go', 'Python', 'Redis', 'OpenAI API', 'Docker', 'Kubernetes', 'GCP', 'Jenkins'],
@@ -91,7 +91,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      name: 'BizReach Marketplace Application',
+      name: 'BizReach Marketplace',
       date: 'May 2023 - August 2023',
       description: 'Led a team to develop a scalable marketplace application, utilizing Firebase for real-time database, authentication, and image storage, with an Express.js and Node.js backend, and a React.js frontend',
       tools: ['Firebase', 'Express.js', 'React', 'Node.js', 'Docker', 'GKE'],

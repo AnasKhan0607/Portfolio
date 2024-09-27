@@ -68,7 +68,7 @@ const Hero = () => {
 
       {/* Right Side - Profile Image */}
       <div className="md:w-1/2 flex justify-center mt-10 md:mt-0">
-        <div className="bg-gradient-to-b from-teal-500 rounded-full w-[31rem] h-[31rem] relative overflow-hidden">
+        <div className="bg-gradient-to-b from-teal-500 rounded-full w-[25rem] h-[25rem] relative overflow-hidden">
           <Image
               src={profile}
               alt="profile"
